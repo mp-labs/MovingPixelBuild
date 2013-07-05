@@ -1,6 +1,10 @@
 
 include( mpbVersion )
 
+function( mpb_error_fatal message )
+    message( FATAL_ERROR ${message} )
+endfunction( mpb_error_fatal message )
+
 function( mpb_display_title_bar size char )
     string( RANDOM LENGTH ${size} ALPHABET ${char} result )
     message( ${result} )
@@ -17,7 +21,6 @@ endfunction( mpb_display_title text )
 
 mpb_display_title( "Moving Pixel Build (MPB) ${MPB_VERSION_STRING}" )
 message( "CMake:                    ${CMAKE_VERSION}" )
-message( "MPB Root Directory:       ${MPBUILD_ROOT_DIR}" )
 message( "Project Root Directory:   ${PROJECT_SOURCE_DIR}" )
 message( "Project Build Directory:  ${PROJECT_BINARY_DIR}" )
 message( "Platform:                 ${CMAKE_SYSTEM_NAME}" )
